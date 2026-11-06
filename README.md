@@ -2,7 +2,7 @@
 
 **A retro dental survival game that teaches real dentistry.** Fight plaque, tartar, cavities and gum disease inside a pixel-art mouth using real dental instruments, then prove what you learned by sequencing the actual procedure and answering a quick quiz.
 
-**▶ Play:** https://garetjax6905.github.io/plaque-attack/ (works on phones and computers, installs to your home screen, and plays offline)
+**▶ Play:** https://plaque-attack.onrender.com (works on phones and computers, installs to your home screen, and plays offline)
 
 ## How it plays
 
@@ -110,6 +110,6 @@ This runs Black and Pylint, then two groups of Chromium tests:
   - The Codex.
   - Moving a save code between two separate browsers.
 
-GitHub Actions runs the same checks on every PR and deploys `main` to GitHub Pages.
+GitHub Actions runs the same checks on every PR and Render deploys `main` automatically.
 
 Built by Thomas Moylan with Claude (AI) as a coding partner.

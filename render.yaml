@@ -1,0 +1,8 @@
+# Render Blueprint: free static site (no server, no sleeping).
+# Publishes only the game files, not the tests or tooling.
+services:
+  - type: web
+    name: plaque-attack
+    runtime: static
+    buildCommand: mkdir -p site && cp -r index.html manifest.webmanifest sw.js css js icons site/
+    staticPublishPath: site
