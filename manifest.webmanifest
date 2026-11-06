@@ -1,0 +1,16 @@
+{
+  "name": "Plaque Attack",
+  "short_name": "Plaque Attack",
+  "description": "A retro dental survival game: fight plaque with real dental instruments and learn clinical dentistry as you play.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#140a1f",
+  "theme_color": "#140a1f",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

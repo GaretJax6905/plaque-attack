@@ -1,0 +1,22 @@
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.pylint.main]
+py-version = "3.12"
+persistent = false
+
+[tool.pylint.format]
+max-line-length = 88
+
+[tool.pylint.reports]
+reports = false
+score = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-markers"
+markers = [
+    "logic: game rules and dental data, run as JavaScript modules in Chromium",
+    "e2e: full journeys through the real UI in Chromium",
+]
