@@ -1,8 +1,24 @@
 # 🦷 Plaque Attack
 
-**A retro dental survival game that teaches real dentistry.** Fight plaque, tartar, cavities and gum disease inside a pixel-art mouth using real dental instruments, then prove what you learned by sequencing the actual procedure and answering a quick quiz.
+**A retro dental survival game that teaches real dentistry.** You fight plaque, tartar, cavities and gum disease inside a pixel-art mouth using real dental instruments. Then you prove what you learned by putting the actual procedure in order and answering a quick quiz.
 
-**▶ Play:** https://plaque-attack.onrender.com (works on phones and computers, installs to your home screen, and plays offline)
+[![Play it live](https://img.shields.io/badge/▶_play_it-plaque--attack.onrender.com-f472b6?style=for-the-badge)](https://plaque-attack.onrender.com)
+[![Checks](https://github.com/GaretJax6905/plaque-attack/actions/workflows/checks.yml/badge.svg)](https://github.com/GaretJax6905/plaque-attack/actions/workflows/checks.yml)
+
+<p align="center">
+  <img src="docs/menu.png" width="280" alt="Plaque Attack title screen on a phone, with Easy and Dental Pro mode choices">
+  &nbsp;&nbsp;
+  <img src="docs/screenshot.png" width="280" alt="Gameplay on a phone: the tooth hero fighting plaque as The Plaque King boss appears">
+</p>
+
+It works on phones and computers, installs to your home screen, and plays offline.
+
+| | |
+| --- | --- |
+| **Front end** | Vanilla JavaScript ES modules (no build step), Canvas 2D pixel renderer, Web Audio API, PWA with offline service worker |
+| **Architecture** | Pure, DOM-free game engine with a seeded RNG, kept separate from rendering, input, audio and UI |
+| **Quality** | 32 automated tests run in real Chromium: module-level logic tests, plus 9 full UI journeys on a phone-sized screen. Black and Pylint too. All run in GitHub Actions |
+| **Deploy** | Render static site, auto-deployed from `main` |
 
 ## How it plays
 
@@ -79,6 +95,26 @@ Further reading:
 | `js/codex.js` | Codex catalog |
 | `js/main.js` | Screens and game flow |
 
+## Front-end highlights
+
+- **Mobile-first.** The game is designed and tested at phone size (390×844) with a floating touch joystick. Runs are about 2 minutes, so a whole case fits a bus ride.
+- **Testable architecture.** `js/engine.js` has no DOM access, so the game rules run headlessly with a seeded random number generator. Rendering, input, audio and screens are separate modules.
+- **Accessible UI.** Modals move focus to their first button, toasts are announced through an `aria-live` region, and `prefers-reduced-motion` turns off animations and transitions.
+- **Offline-first PWA.** A manifest and service worker cache the whole game, so it installs and plays without a connection.
+- **Crisp retro graphics.** Each frame is drawn at low resolution and scaled up, with an additive glow and CRT scanline pass on top.
+- **Portable progress.** Progress autosaves in the browser, and a save code moves it to another device. A browser test proves this works between two separate browsers.
+
+## How I worked: AI-assisted, test-verified
+
+I made Plaque Attack for my web applications course, working with Claude (an AI coding assistant) as a pair programmer. I chose the dental concept, playtested it, and decided what shipped.
+
+Educational content is only useful if it's correct, so accuracy is enforced by tests, not just reviewed:
+
+- **Tooth numbering.** All 32 teeth are checked against an independent Universal ↔ FDI table.
+- **Content completeness.** Every case, quiz question and Codex entry is checked for missing fields in both modes.
+- **Full journeys.** Easy and Pro cases are played start to finish in real Chromium, including wrong-order corrections.
+- **Gate.** GitHub Actions runs all of this on every push and pull request.
+
 ## Run it locally (WSL/Ubuntu, Python 3.12)
 
 ```sh
@@ -112,4 +148,8 @@ This runs Black and Pylint, then two groups of Chromium tests:
 
 GitHub Actions runs the same checks on every PR and Render deploys `main` automatically.
 
-Built by Thomas Moylan with Claude (AI) as a coding partner.
+## Author
+
+**Thomas Moylan** · IT student at NJIT, building toward front-end engineering · [@GaretJax6905](https://github.com/GaretJax6905)
+
+More projects: [RPS Chaos](https://github.com/GaretJax6905/rps-chaos) (boss-rush RPS with a learning AI and online play) · [Neon Swarm](https://github.com/GaretJax6905/neon-swarm) (Canvas arena shooter) · [MoodWave](https://github.com/GaretJax6905/moodwave) (Web Audio synthesizer and visualizer)
